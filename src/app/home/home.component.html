@@ -1,0 +1,28 @@
+<div class="logo">
+  <h3>金凯的博客</h3>
+  <ul>
+    <li (click)="openSearchInput()"><span class="search-icon"></span></li>
+    <li><a href="https://github.com/sangwell" target="_blank" class="github-icon">Github</a></li>
+  </ul>
+</div>
+
+<div class="search-layout" *ngIf="isSearching">
+  <input type="search" #searchInput placeholder="根据文章标题查询" (keyup.enter)="search(searchInput.value)">
+</div>
+<div class="search-layout" *ngIf="selectedTag">
+  <h4><span>#{{selectedTag}}<a class="delete-icon"></a></span></h4>
+</div>
+
+<div class="list" *ngFor="let item of articles">
+  <label>{{item.date}}</label>
+  <h3 (click)="openBlog(item.id)">{{item.title}}</h3>
+  <span *ngFor="let tag of item.tags" (click)="searchByTag(tag)">#{{tag}}</span>
+  <!--<img src="../assets/img/1.jpg"/>-->
+</div>
+
+<!--<div class="load-tip">
+  （ 已全部加载 ）
+</div>-->
+<div class="load-tip">
+  <button type="button">加载更多</button>
+</div>
