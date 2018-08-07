@@ -7,16 +7,17 @@
 </div>
 
 <div class="search-layout" *ngIf="isSearching">
-  <input type="search" #searchInput placeholder="根据文章标题查询" (keyup.enter)="search(searchInput.value)">
+  <input type="search" name="blogTitle" #searchInput placeholder="根据文章标题查询" [(ngModel)]="blogSearchModel.Title" (keyup.enter)="search()">
 </div>
 <div class="search-layout" *ngIf="selectedTag">
   <h4><span>#{{selectedTag}}<a class="delete-icon"></a></span></h4>
 </div>
 
 <div class="list" *ngFor="let item of articles">
-  <label>{{item.date}}</label>
-  <h3 (click)="openBlog(item.id)">{{item.title}}</h3>
-  <span *ngFor="let tag of item.tags" (click)="searchByTag(tag)">#{{tag}}</span>
+  <label>{{item.Date}}</label>
+  <h3><a [routerLink]="['/blog',item.Id]">{{item.Title}}</a></h3>
+  <!--<span *ngFor="let tag of item.tags" (click)="searchByTag(tag)">#{{tag}}</span>-->
+  <span>{{item.Tags}}</span>
   <!--<img src="../assets/img/1.jpg"/>-->
 </div>
 
@@ -24,5 +25,5 @@
   （ 已全部加载 ）
 </div>-->
 <div class="load-tip">
-  <button type="button">加载更多</button>
+  <button type="button" (click)="getMoreBlogList()">加载更多</button>
 </div>

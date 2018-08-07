@@ -1,5 +1,6 @@
 .blog-title{
-  margin-bottom: 60px;
+  margin-bottom: 30px;
+  font-weight: bold;
 }
 .separator-icon{
   padding:0 10px;
@@ -8,3 +9,8 @@
 .breadcrumb-title{
   color: #666;
 }
+.blog-content{
+  width: 800px;
+  margin: 0 auto;
+}
+

@@ -1,5 +1,9 @@
-<a routerLink="/">主页</a><span class="separator-icon">/</span><span class="breadcrumb-title">当前博客</span>
-<h1 class="blog-title">{{blogTitle}}</h1>
-<div [innerHTML]="blogHtml">
+<div class="blog-content">
+  <a routerLink="/">主页</a><span class="separator-icon">/</span><span class="breadcrumb-title">当前博客</span>
+</div>
+<div class="blog-content">
+  <h1 class="blog-title">{{blogTitle}}</h1>
+</div>
+<div class="blog-content" [innerHTML]="blogHtml">
 
 </div>
