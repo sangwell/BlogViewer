@@ -46,7 +46,8 @@ export class HomeComponent implements OnInit{
   }
   getMoreBlogList() {
     this.currentPageIndex ++;
-
+    this.blogSearchModel.CurrentPage = this.currentPageIndex * this.blogSearchModel.PageSize;
+    this.getBlogList();
   }
   searchByTag(tag) {
     this.isSearching = false;
