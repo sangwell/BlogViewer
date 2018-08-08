@@ -5,6 +5,7 @@
   text-align: center;
   font-weight: bold;
   letter-spacing: 8px;
+  cursor: pointer;
 }
 .logo h3:before{
   content: '';
@@ -55,7 +56,7 @@
 .search-layout{
   width: 100%;
   height: 50px;
-  margin-top: 30px;
+  margin-top: 50px;
 }
 .search-layout input{
   width: 100%;
@@ -71,16 +72,19 @@
 }
 .search-layout h4 span{
   background: #10c513;
-  padding: 2px 12px;
+  padding: 7px 15px;
   color: #ffffff;
 }
 .delete-icon{
-  display: inline-block;
-  width: 20px;
-  height: 27px;
-  margin-left: 12px;
-  background-image: url('../../assets/img/delete.png');
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-image: url('../../assets/img/close.png');
   background-repeat: no-repeat;
+  background-position: center;
+  margin-top: -25px;
+  margin-left: -1px;
+  cursor: pointer;
 }
 .list{
   margin-top: 40px;
@@ -124,6 +128,7 @@
 }
 .load-tip{
   padding: 60px 0;
+  color: #b2bac2;
   text-align: center;
 }
 .load-tip button{

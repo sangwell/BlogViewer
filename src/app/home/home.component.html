@@ -1,5 +1,7 @@
+<!--<app-loading *ngIf="isLoading"></app-loading>-->
+
 <div class="logo">
-  <h3>金凯的博客</h3>
+  <h3 (click)="reloadPage()">*****</h3>
   <ul>
     <li (click)="openSearchInput()"><span class="search-icon"></span></li>
     <li><a href="https://github.com/sangwell" target="_blank" class="github-icon">Github</a></li>
@@ -7,23 +9,23 @@
 </div>
 
 <div class="search-layout" *ngIf="isSearching">
-  <input type="search" name="blogTitle" #searchInput placeholder="根据文章标题查询" [(ngModel)]="blogSearchModel.Title" (keyup.enter)="search()">
+  <input type="search" name="blogTitle" #searchInput placeholder="根据博客标题/标签查询" [(ngModel)]="blogSearchModel.Title" (keyup.enter)="search()">
 </div>
 <div class="search-layout" *ngIf="selectedTag">
-  <h4><span>#{{selectedTag}}<a class="delete-icon"></a></span></h4>
+  <h4><span>#{{selectedTag}}<a class="delete-icon" (click)="closeTag()"></a></span></h4>
 </div>
 
 <div class="list" *ngFor="let item of articles">
-  <label>{{item.Date}}</label>
+  <label>{{item.Date | DateFormat}}</label>
   <h3><a [routerLink]="['/blog',item.Id]">{{item.Title}}</a></h3>
-  <!--<span *ngFor="let tag of item.tags" (click)="searchByTag(tag)">#{{tag}}</span>-->
-  <span>{{item.Tags}}</span>
+  <span *ngFor="let tag of item.Tags" (click)="searchByTag(tag)">#{{tag}}</span>
+  <!--<span>{{item.Tags}}</span>-->
   <!--<img src="../assets/img/1.jpg"/>-->
 </div>
 
-<!--<div class="load-tip">
-  （ 已全部加载 ）
-</div>-->
-<div class="load-tip">
+<div *ngIf="isShowAll" class="load-tip">
+  —— 已全部加载 ——
+</div>
+<div *ngIf="!isShowAll && articles.length > 0" class="load-tip">
   <button type="button" (click)="getMoreBlogList()">加载更多</button>
 </div>

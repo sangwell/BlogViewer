@@ -3,12 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-
+import { PipesModule } from './directives/pipes/pipe.module';
 import { ApiService } from './services/api-service';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { BlogComponent } from './blog/blog.component';
+import { LoadingComponent } from './loading/loading.component';
 
 const appRoutes: Routes = [
   { path: '', component: HomeComponent },
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    BlogComponent
+    BlogComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
       appRoutes
     ),
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    PipesModule
   ],
   providers: [ApiService],
   bootstrap: [AppComponent]
